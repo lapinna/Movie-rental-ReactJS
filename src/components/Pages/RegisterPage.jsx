@@ -1,3 +1,4 @@
+import LoginForm from "../Form/Login/LoginForm";
 import RegisterForm from "../Form/Register/RegisterForm";
 
 const RegisterPage = () => {
@@ -9,6 +10,7 @@ const RegisterPage = () => {
 
   return (
     <div>
+      <LoginForm />
       <RegisterForm addUser={addUser} />
     </div>
   );

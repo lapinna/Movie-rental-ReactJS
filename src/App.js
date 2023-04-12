@@ -1,6 +1,5 @@
 import "./App.scss";
-//import RegisterForm from "./components/Form/Register/RegisterForm";
-import RegisterPage from "./components/Pages/RegisterPage";
+import NavigationRoutes from "./components/Router/NavigationRoutes";
 
 function App() {
   return (
@@ -9,7 +8,7 @@ function App() {
         <h1>Movie rental</h1>
       </header>
       <div className="page-content">
-        <RegisterPage />
+        <NavigationRoutes />
       </div>
       <footer>
         <div className="footer-left">Made by: Inese Lapina</div>
