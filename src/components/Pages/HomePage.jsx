@@ -1,5 +1,5 @@
 import NavBar from "../NavBar/NavBar";
-import AvailableMoviesTable from "../Table/AvailableMoviesTable/AvailableMoviesTable";
+import AvailableMoviesTable from "../Table/AvailableMovies/AvailableMoviesTable";
 
 const HomePage = () => {
   return (
