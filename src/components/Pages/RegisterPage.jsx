@@ -9,10 +9,10 @@ const RegisterPage = () => {
   };
 
   return (
-    <div>
+    <>
       <LoginForm />
       <RegisterForm addUser={addUser} />
-    </div>
+    </>
   );
 };
 

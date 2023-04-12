@@ -1,0 +1,29 @@
+.content-container {
+  width: 100%;
+  height: auto;
+  background-color: #FFF;
+  margin-top: 1rem;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    padding: 1rem;
+    font-size: 20px;
+    color: #363636;
+  }
+
+  table {
+    width: 90%;
+    margin: 1rem;
+    margin-bottom: 3rem;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+  }
+
+  tbody {
+    background-color: #D9D9D9;
+  }
+}

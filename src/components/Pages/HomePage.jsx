@@ -1,9 +1,13 @@
-import React from 'react'
+import NavBar from "../NavBar/NavBar";
+import AvailableMoviesTable from "../Table/AvailableMoviesTable/AvailableMoviesTable";
 
 const HomePage = () => {
   return (
-    <div>HomePage</div>
-  )
-}
+    <>
+      <NavBar />
+      <AvailableMoviesTable />
+    </>
+  );
+};
 
-export default HomePage
+export default HomePage;
