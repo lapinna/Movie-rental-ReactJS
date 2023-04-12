@@ -3,14 +3,16 @@ import { useState } from "react";
 import RegisterValidation from "../../Validation/RegisterValidation/RegisterValidation";
 
 const RegisterForm = ({ addUser }) => {
-  const [values, setValues] = useState({
-    name: "",
-    surname: "",
-    email1: "",
-    email2: "",
-    password1: "",
-    password2: ""
-  });
+const initialState = {
+  name: "",
+  surname: "",
+  email1: "",
+  email2: "",
+  password1: "",
+  password2: "",
+}
+
+  const [values, setValues] = useState(initialState);
 
   const handleChange = (e) => {
     setValues({
@@ -27,6 +29,7 @@ const RegisterForm = ({ addUser }) => {
     if (Object.keys(validationErrors).length === 0) {
       addUser(values);
       alert("Registration successful! Please Login!");
+      setValues(initialState);
     } else {
       setErrors(validationErrors);
     }
@@ -97,7 +100,7 @@ const RegisterForm = ({ addUser }) => {
               value={values.password1}
               onChange={handleChange}
             />
-            {errors.password1 && (<p className="error">{errors.password1}</p>)}
+            {errors.password1 && <p className="error">{errors.password1}</p>}
           </label>
         </div>
         <div>
@@ -110,7 +113,7 @@ const RegisterForm = ({ addUser }) => {
               value={values.password2}
               onChange={handleChange}
             />
-            {errors.password2 && (<p className="error">{errors.password2}</p>)}
+            {errors.password2 && <p className="error">{errors.password2}</p>}
           </label>
         </div>
       </form>
