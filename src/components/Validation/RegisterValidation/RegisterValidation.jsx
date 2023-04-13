@@ -45,7 +45,6 @@ const RegisterValidation = (values) => {
           return null;
         }
         if (email1 !== email2) {
-          console.log("here", email1 !== email2);
           errors[elem[0]] = `Email field does not match`;
           return null;
         }

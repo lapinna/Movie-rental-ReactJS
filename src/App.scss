@@ -57,7 +57,8 @@
       }
     }
 
-    button {
+    #login-btn,
+    #register-btn {
       background-color: #363636;
       width: 100px;
       border-radius: 30px;
@@ -75,7 +76,7 @@
     display: flex;
     flex-direction: row;
     font-size: 10px;
-    align-items: end;
+    align-items: flex-end;
 
     .footer-left {
       text-align: start;
