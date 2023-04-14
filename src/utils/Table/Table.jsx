@@ -8,6 +8,7 @@ const Table = ({
   header3,
   header4,
   buttonName,
+  handleClick
 }) => {
   function getRowsData() {
     let items = content;
@@ -17,7 +18,7 @@ const Table = ({
         <tr key={index}>
           <RenderRow key={index} data={row} keys={keys} />
           <td>
-            <button>{buttonName}</button>
+            <button key={index} onClick={() => handleClick(index)}>{buttonName}</button>
           </td>
         </tr>
       );
@@ -37,7 +38,7 @@ const Table = ({
   return (
     <div className="content-container">
       <h1>{contentHeader}</h1>
-      <table className="available-movies-table">
+      <table>
         <thead>
           <tr>
             <th>{header1}</th>
