@@ -54,7 +54,6 @@ const YourMoviesTable = () => {
       header4="Price"
       buttonName="Remove"
       handleClick={clickRemove}
-      tableType="your"
     />
   );
 };

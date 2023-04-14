@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import RegisterPage from "../Pages/RegisterPage";
 import HomePage from "../Pages/HomePage";
 import YourMovies from "../Pages/YourMovies";
-import Profile from "../Pages/Profile";
+import ProfilePage from "../Pages/ProfilePage";
 
 const NavigationRoutes = () => {
   return (
@@ -11,7 +11,7 @@ const NavigationRoutes = () => {
         <Route exact path="/" element={<RegisterPage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/yourMovies" element={<YourMovies />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
     </BrowserRouter>
   );

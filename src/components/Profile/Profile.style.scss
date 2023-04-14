@@ -1,0 +1,36 @@
+.profile-summary {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  font-size: 14px;
+  line-height: 20px;
+
+  .profile-picture {
+    margin-right: 1.7rem;
+
+    img {
+      width: 100px;
+    }
+  }
+}
+
+.profile-button-container {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  margin-bottom: 2rem;
+
+  button {
+    width: 120px;
+    background-color: #363636;
+    color: #FFF;
+    font-size: 11px;
+    border: none;
+    border-radius: 30px;
+    padding: 0.2rem 1rem;
+    margin-right: 0.7rem;
+    margin-top: 0.3rem;
+    cursor: pointer;
+  }
+}
