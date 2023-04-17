@@ -5,11 +5,21 @@ import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const navigate = useNavigate();
+  const users = JSON.parse(localStorage.getItem("users"))
+  const [currentUser, setCurrentUser] = useState([]);
+
+  const emails = users.map((elem) => elem.email1);
+  const passwords = users.map((elem) => elem.password1);
 
   const [loginValues, setLoginValues] = useState({
     email: "",
     password: "",
   });
+
+  const registeredEmail = emails.filter((elem) => elem === loginValues.email);
+  const registeredPassword = passwords.filter(
+    (elem) => elem === loginValues.password
+  );
 
   const handleChange = (e) => {
     setLoginValues({
@@ -23,7 +33,15 @@ const LoginForm = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     const validationErrors = LoginValidation(loginValues);
-    if (Object.keys(validationErrors).length === 0) {
+    if (
+      Object.keys(validationErrors).length === 0 &&
+      registeredEmail &&
+      registeredPassword
+    ) {
+      setCurrentUser(
+        ...currentUser,
+        localStorage.setItem("user", JSON.stringify(loginValues)),
+        );
       navigate("/home");
     } else {
       setErrors(validationErrors);
