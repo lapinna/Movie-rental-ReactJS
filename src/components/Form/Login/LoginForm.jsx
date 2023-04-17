@@ -5,21 +5,17 @@ import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const navigate = useNavigate();
-  const users = JSON.parse(localStorage.getItem("users"))
-  const [currentUser, setCurrentUser] = useState([]);
-
-  const emails = users.map((elem) => elem.email1);
-  const passwords = users.map((elem) => elem.password1);
+  const users = JSON.parse(localStorage.getItem("users"));
 
   const [loginValues, setLoginValues] = useState({
     email: "",
     password: "",
   });
 
-  const registeredEmail = emails.filter((elem) => elem === loginValues.email);
-  const registeredPassword = passwords.filter(
-    (elem) => elem === loginValues.password
-  );
+  const [yourMovies, setYourMovies] = useState(() => {
+    const updatedYourMovies = JSON.parse(localStorage.getItem("yourMovies"));
+    return updatedYourMovies || [];
+  });
 
   const handleChange = (e) => {
     setLoginValues({
@@ -28,21 +24,36 @@ const LoginForm = () => {
     });
   };
 
+  const emails = users.map((elem) => elem.email1);
+  const passwords = users.map((elem) => elem.password1);
+
+  const registeredEmail = emails.filter((elem) => elem === loginValues.email);
+  const registeredPassword = passwords.filter(
+    (elem) => elem === loginValues.password
+  );
+
   const [errors, setErrors] = useState({});
 
   const handleLogin = (e) => {
     e.preventDefault();
     const validationErrors = LoginValidation(loginValues);
-    if (
-      Object.keys(validationErrors).length === 0 &&
-      registeredEmail &&
-      registeredPassword
-    ) {
-      setCurrentUser(
-        ...currentUser,
-        localStorage.setItem("user", JSON.stringify(loginValues)),
+    if (Object.keys(validationErrors).length === 0) {
+      if (registeredEmail && registeredPassword) {
+        const currentUserValues = users.find(
+          (user) => user.email1 === loginValues.email
         );
-      navigate("/home");
+        const currentUser = {
+          userName: currentUserValues.name,
+          userSurname: currentUserValues.surname,
+          userEmail: currentUserValues.email1,
+          userPassword: currentUserValues.password1,
+          userMovies: yourMovies
+        }
+        localStorage.setItem("user", JSON.stringify(currentUser))
+        navigate("/home");
+      } else {
+        alert("NOT register user");
+      }
     } else {
       setErrors(validationErrors);
     }
