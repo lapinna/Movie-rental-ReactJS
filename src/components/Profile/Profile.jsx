@@ -1,11 +1,15 @@
 import "./Profile.style.scss";
 import profileIcon from "../../assets/profile-icon.png";
+import { useState } from "react";
 
 const Profile = ({ contentHeader }) => {
-  let userName = "John";
-  let userSurname = "Newman";
-  let userEmail = "john.newman@gmail.com";
-  
+  const user = JSON.parse(localStorage.getItem("user"));
+  let userName = user.userName;
+  let userSurname = user.userSurname;
+  let initialUserEmail = user.userEmail;
+
+  const [userEmail, setUserEmail] = useState(initialUserEmail);
+
   const handleClick = () => {
     function resetEmail() {
       let newUserEmail = prompt("Your new email:");
@@ -18,8 +22,8 @@ const Profile = ({ contentHeader }) => {
       const valid = validRegex.test(input);
       if (valid) {
         alert("Email address changed");
-        userEmail = input;
-        return userEmail;
+        const newEmail = input;
+        setUserEmail(newEmail);
       } else {
         alert("Email not valid!");
       }
