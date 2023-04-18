@@ -5,12 +5,20 @@ import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const navigate = useNavigate();
-  const users = JSON.parse(localStorage.getItem("users"));
+
+  const [users, setUsers] = useState(() => {
+    const updatedUsers = JSON.parse(localStorage.getItem("users"));
+    return updatedUsers || [];
+  });
 
   const [loginValues, setLoginValues] = useState({
     email: "",
     password: "",
   });
+
+  const currentUserValues = users.find(
+    (user) => user.email1 === loginValues.email
+  );
 
   const [yourMovies, setYourMovies] = useState(() => {
     const updatedYourMovies = JSON.parse(localStorage.getItem("yourMovies"));
@@ -39,9 +47,6 @@ const LoginForm = () => {
     const validationErrors = LoginValidation(loginValues);
     if (Object.keys(validationErrors).length === 0) {
       if (registeredEmail && registeredPassword) {
-        const currentUserValues = users.find(
-          (user) => user.email1 === loginValues.email
-        );
         const currentUser = {
           userName: currentUserValues.name,
           userSurname: currentUserValues.surname,
