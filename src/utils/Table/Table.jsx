@@ -1,40 +1,14 @@
+// import { createRef, forwardRef } from "react";
 import "./Table.style.scss";
 
 const Table = ({
-  content,
   contentHeader,
   header1,
   header2,
   header3,
   header4,
-  buttonName,
-  handleClick
+  tableRow
 }) => {
-  function getRowsData() {
-    let items = content;
-    let keys = Object.keys(content[0]);
-    return items.map((row, index) => {
-      return (
-        <tr key={index}>
-          <RenderRow key={index} data={row} keys={keys} />
-          <td>
-            <button key={index} onClick={() => handleClick(index)}>{buttonName}</button>
-          </td>
-        </tr>
-      );
-    });
-  }
-
-  const RenderRow = (props) => {
-    return props.keys.map((key, index) => {
-      return (
-        <td className={`data-` + index} key={index}>
-          {props.data[key]}
-        </td>
-      );
-    });
-  };
-
   return (
     <div className="content-container">
       <h1>{contentHeader}</h1>
@@ -47,7 +21,7 @@ const Table = ({
             <th>{header4}</th>
           </tr>
         </thead>
-        <tbody>{getRowsData()}</tbody>
+        <tbody>{tableRow}</tbody>
       </table>
     </div>
   );

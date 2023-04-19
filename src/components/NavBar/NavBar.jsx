@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const NavBar = () => {
   const handleClick = () => {
     localStorage.removeItem("user");
-    localStorage.removeItem("yourMovies");
+    // localStorage.removeItem("yourMovies");
   };
 
   return (

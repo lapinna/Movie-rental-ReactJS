@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Table from "../../../utils/Table/Table";
+import Row from "../../../utils/Row/Row";
 
 const YourMoviesTable = () => {
   const initialMovieData = [
@@ -46,14 +47,18 @@ const YourMoviesTable = () => {
   };
   return (
     <Table
-      content={yourMovies}
       contentHeader="Your movies"
       header1="Name"
       header2="Genre"
       header3="Time"
       header4="Price"
-      buttonName="Remove"
-      handleClick={clickRemove}
+      tableRow={
+        <Row
+          content={yourMovies}
+          buttonName="Remove"
+          handleClick={clickRemove}
+        />
+      }
     />
   );
 };

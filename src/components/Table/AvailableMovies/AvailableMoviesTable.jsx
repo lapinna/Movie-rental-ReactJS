@@ -1,3 +1,4 @@
+import Row from "../../../utils/Row/Row";
 import Table from "../../../utils/Table/Table";
 import { useState } from "react";
 
@@ -47,14 +48,18 @@ const AvailableMoviesTable = () => {
 
   return (
     <Table
-      content={movies}
       contentHeader="Available movies"
       header1="Name"
       header2="Genre"
       header3="Price for 12h"
       header4="Is in stock"
-      buttonName="Rent"
-      handleClick={clickRent}
+      tableRow={
+        <Row 
+        content={movies} 
+        buttonName="Rent" 
+        handleClick={clickRent}
+        />
+      }
     />
   );
 };
