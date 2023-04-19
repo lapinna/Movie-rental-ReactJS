@@ -6,17 +6,14 @@ import { useNavigate } from "react-router-dom";
 const LoginForm = () => {
   const navigate = useNavigate();
 
-  const [users, setUsers] = useState(() => {
-    const updatedUsers = JSON.parse(localStorage.getItem("users"));
-    return updatedUsers || [];
-  });
+  const updatedUsers = JSON.parse(localStorage.getItem("users")) || [];
 
   const [loginValues, setLoginValues] = useState({
     email: "",
     password: "",
   });
 
-  const currentUserValues = users.find(
+  const currentUserValues = updatedUsers.find(
     (user) => user.email1 === loginValues.email
   );
 
@@ -32,8 +29,8 @@ const LoginForm = () => {
     });
   };
 
-  const emails = users.map((elem) => elem.email1);
-  const passwords = users.map((elem) => elem.password1);
+  const emails = updatedUsers.map((elem) => elem.email1);
+  const passwords = updatedUsers.map((elem) => elem.password1);
 
   const registeredEmail = emails.filter((elem) => elem === loginValues.email);
   const registeredPassword = passwords.filter(
@@ -52,9 +49,9 @@ const LoginForm = () => {
           userSurname: currentUserValues.surname,
           userEmail: currentUserValues.email1,
           userPassword: currentUserValues.password1,
-          userMovies: yourMovies
-        }
-        localStorage.setItem("user", JSON.stringify(currentUser))
+          userMovies: yourMovies,
+        };
+        localStorage.setItem("user", JSON.stringify(currentUser));
         navigate("/home");
       } else {
         alert("NOT register user");

@@ -2,15 +2,15 @@ import "./RegisterForm.style.scss";
 import { useState } from "react";
 import RegisterValidation from "../../Validation/RegisterValidation/RegisterValidation";
 
-const RegisterForm = ({ addUser }) => {
-const initialState = {
-  name: "",
-  surname: "",
-  email1: "",
-  email2: "",
-  password1: "",
-  password2: "",
-}
+const RegisterForm = () => {
+  const initialState = {
+    name: "",
+    surname: "",
+    email1: "",
+    email2: "",
+    password1: "",
+    password2: "",
+  };
 
   const [values, setValues] = useState(initialState);
 
@@ -27,6 +27,11 @@ const initialState = {
     e.preventDefault();
     const validationErrors = RegisterValidation(values);
     if (Object.keys(validationErrors).length === 0) {
+      const addUser = (newUser) => {
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+        const updatedUsers = [...users, newUser];
+        localStorage.setItem("users", JSON.stringify(updatedUsers));
+      };
       addUser(values);
       alert("Registration successful! Please Login!");
       setValues(initialState);
