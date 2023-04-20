@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Table from "../../../utils/Table/Table";
-import Row from "../../../utils/Row/Row";
+import RowYourMovies from "../../../utils/Row/RowYourMovies";
 
 const YourMoviesTable = () => {
   const updatedMovies = JSON.parse(localStorage.getItem("movies")) || [];
@@ -39,7 +39,7 @@ const YourMoviesTable = () => {
       header3="Time"
       header4="Price"
       tableRow={
-        <Row
+        <RowYourMovies
           content={yourMovies}
           buttonName="Remove"
           handleClick={clickRemove}
