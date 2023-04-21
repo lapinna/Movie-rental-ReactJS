@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/Movie-rental-ReactJS/static/css/main.a23effd5.css",
-    "main.js": "/Movie-rental-ReactJS/static/js/main.9dd4e1a9.js",
-    "static/media/profile-icon.png": "/Movie-rental-ReactJS/static/media/profile-icon.5985aab1be46dc2b1f02.png",
-    "index.html": "/Movie-rental-ReactJS/index.html",
-    "main.a23effd5.css.map": "/Movie-rental-ReactJS/static/css/main.a23effd5.css.map",
-    "main.9dd4e1a9.js.map": "/Movie-rental-ReactJS/static/js/main.9dd4e1a9.js.map"
+    "main.css": "/static/css/main.a23effd5.css",
+    "main.js": "/static/js/main.6fc0bbdc.js",
+    "static/media/profile-icon.png": "/static/media/profile-icon.5985aab1be46dc2b1f02.png",
+    "index.html": "/index.html",
+    "main.a23effd5.css.map": "/static/css/main.a23effd5.css.map",
+    "main.6fc0bbdc.js.map": "/static/js/main.6fc0bbdc.js.map"
   },
   "entrypoints": [
     "static/css/main.a23effd5.css",
-    "static/js/main.9dd4e1a9.js"
+    "static/js/main.6fc0bbdc.js"
   ]
 }
