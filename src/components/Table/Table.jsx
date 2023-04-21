@@ -1,4 +1,3 @@
-// import { createRef, forwardRef } from "react";
 import "./Table.style.scss";
 
 const Table = ({

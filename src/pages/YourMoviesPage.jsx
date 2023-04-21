@@ -1,5 +1,5 @@
-import NavBar from "../NavBar/NavBar";
-import YourMoviesTable from "../Table/YourMovies/YourMoviesTable";
+import NavBar from "../components/NavBar/NavBar";
+import YourMoviesTable from "../components/YourMovies/YourMoviesTable";
 
 const YourMovies = () => {
   return (

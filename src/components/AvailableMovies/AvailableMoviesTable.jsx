@@ -1,6 +1,8 @@
-import Row from "../../../utils/Row/Row";
-import Table from "../../../utils/Table/Table";
 import { useState } from "react";
+
+import Table from "../Table/Table";
+import TableRow from "../TableRow/TableRow";
+import { replaceStockImg } from "../../utils/replaceStockImg";
 
 const AvailableMoviesTable = () => {
   const initialMovieData = [
@@ -14,7 +16,7 @@ const AvailableMoviesTable = () => {
     { title: "Avatar", genre: "Science Fiction", price: 3, count: 0 },
   ];
 
-  const [movies, setMovies] = useState(() => {
+  const [movies] = useState(() => {
     const updatedMovies = JSON.parse(localStorage.getItem("movies"));
     return updatedMovies || initialMovieData;
   });
@@ -53,13 +55,19 @@ const AvailableMoviesTable = () => {
       header2="Genre"
       header3="Price for 12h"
       header4="Is in stock"
-      tableRow={
-        <Row 
-        content={movies} 
-        buttonName="Rent" 
-        handleClick={clickRent}
-        />
-      }
+      tableRow={movies.map((row, index) => {
+        return (
+          <TableRow
+            key={index}
+            data1={row.title}
+            data2={row.genre}
+            data3={row.price}
+            data4={replaceStockImg(row.count)}
+            buttonName="Rent"
+            handleClick={() => clickRent(index)}
+          />
+        );
+      })}
     />
   );
 };

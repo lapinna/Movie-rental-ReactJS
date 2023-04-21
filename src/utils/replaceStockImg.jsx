@@ -1,5 +1,5 @@
-import check from "../../assets/check.png";
-import cross from "../../assets/cross.png";
+import check from "../assets/check.png";
+import cross from "../assets/cross.png";
 
 export function replaceStockImg(data) {
   if (data === 0) {
