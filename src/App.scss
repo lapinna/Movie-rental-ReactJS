@@ -51,13 +51,12 @@
     }
 
     #login-btn,
-    #register-btn {
+    .register-btn {
       background-color: #363636;
       width: 100px;
       border-radius: 30px;
       color: #FFF;
       cursor: pointer;
-      margin: auto;
     }
   }
 }

@@ -13,6 +13,11 @@ const RegisterForm = () => {
   };
 
   const [values, setValues] = useState(initialState);
+  const [isShown, setIsShown] = useState(false);
+
+  const handleClick = () => {
+    setIsShown(true);
+  };
 
   const handleChange = (e) => {
     setValues({
@@ -41,91 +46,112 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="form-container">
-      <form className="register-form">
-        <div>
-          <label htmlFor="name">
-            Name
-            <input
-              name="name"
-              type="text"
-              placeholder="name"
-              value={values.name}
-              onChange={handleChange}
-            />
-            {errors.name && <p className="error">{errors.name}</p>}
-          </label>
-        </div>
-        <div>
-          <label htmlFor="surname">
-            Surname
-            <input
-              name="surname"
-              type="text"
-              placeholder="surname"
-              value={values.surname}
-              onChange={handleChange}
-            />
-            {errors.surname && <p className="error">{errors.surname}</p>}
-          </label>
-        </div>
-        <div>
-          <label htmlFor="email1">
-            Email
-            <input
-              name="email1"
-              type="email"
-              placeholder="email"
-              value={values.email1}
-              onChange={handleChange}
-            />
-            {errors.email1 && <p className="error">{errors.email1}</p>}
-          </label>
-        </div>
-        <div>
-          <label htmlFor="email2">
-            Email again
-            <input
-              name="email2"
-              type="email"
-              placeholder="email"
-              value={values.email2}
-              onChange={handleChange}
-            />
-            {errors.email2 && <p className="error">{errors.email2}</p>}
-          </label>
-        </div>
-        <div>
-          <label htmlFor="password1">
-            Password
-            <input
-              name="password1"
-              type="password"
-              placeholder="password"
-              value={values.password1}
-              onChange={handleChange}
-            />
-            {errors.password1 && <p className="error">{errors.password1}</p>}
-          </label>
-        </div>
-        <div>
-          <label htmlFor="password2">
-            Password again
-            <input
-              name="password2"
-              type="password"
-              placeholder="password"
-              value={values.password2}
-              onChange={handleChange}
-            />
-            {errors.password2 && <p className="error">{errors.password2}</p>}
-          </label>
-        </div>
-      </form>
-      <button id="register-btn" type="submit" onClick={handleFormSubmit}>
+    <>
+      <button className="register-btn" onClick={handleClick} style={{display: isShown ? 'none':'block' }}>
         Register
       </button>
-    </div>
+      {isShown ? (
+        <div className="form-container">
+          <form className="register-form">
+            <div>
+              <label htmlFor="name">
+                Name
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  placeholder="name"
+                  value={values.name}
+                  onChange={handleChange}
+                />
+                {errors.name && <p className="error">{errors.name}</p>}
+              </label>
+            </div>
+            <div>
+              <label htmlFor="surname">
+                Surname
+                <input
+                  id="surname"
+                  name="surname"
+                  type="text"
+                  placeholder="surname"
+                  value={values.surname}
+                  onChange={handleChange}
+                />
+                {errors.surname && <p className="error">{errors.surname}</p>}
+              </label>
+            </div>
+            <div>
+              <label htmlFor="email1">
+                Email
+                <input
+                  id="email1"
+                  name="email1"
+                  type="email"
+                  placeholder="email"
+                  value={values.email1}
+                  onChange={handleChange}
+                />
+                {errors.email1 && <p className="error">{errors.email1}</p>}
+              </label>
+            </div>
+            <div>
+              <label htmlFor="email2">
+                Email again
+                <input
+                  id="email2"
+                  name="email2"
+                  type="email"
+                  placeholder="email"
+                  value={values.email2}
+                  onChange={handleChange}
+                />
+                {errors.email2 && <p className="error">{errors.email2}</p>}
+              </label>
+            </div>
+            <div>
+              <label htmlFor="password1">
+                Password
+                <input
+                  id="password1"
+                  name="password1"
+                  type="password"
+                  placeholder="password"
+                  value={values.password1}
+                  onChange={handleChange}
+                />
+                {errors.password1 && (
+                  <p className="error">{errors.password1}</p>
+                )}
+              </label>
+            </div>
+            <div>
+              <label htmlFor="password2">
+                Password again
+                <input
+                  id="password2"
+                  name="password2"
+                  type="password"
+                  placeholder="password"
+                  value={values.password2}
+                  onChange={handleChange}
+                />
+                {errors.password2 && (
+                  <p className="error">{errors.password2}</p>
+                )}
+              </label>
+            </div>
+          </form>
+          <button
+            className="register-btn"
+            type="submit"
+            onClick={handleFormSubmit}
+          >
+            Register
+          </button>
+        </div>
+      ) : null}
+    </>
   );
 };
 
